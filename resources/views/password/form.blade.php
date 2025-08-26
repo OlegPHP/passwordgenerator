@@ -1,12 +1,15 @@
-
-    <title>
-        Генерация пароля
-    </title>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Генерация пароля</title>
+</head>
+<body>
 
 <form action="{{ route('generate') }}" method="POST">
 
     @csrf
-    <p>Введите количество символов(от 4 до 40) <input type="text" name="quantity" min="4" max="40" value="{{ old('quantity', 4) }}" required>
+    <p>Введите количество символов (4-40) <input type="text" name="quantity" min="4" max="40" value="{{ old('quantity', 4) }}" required>
         @error('quantity')
         <span style="color:red;">{{ $message }}</span>
         @enderror</p>
@@ -31,3 +34,5 @@
         <h1>{{session('password')}}</h1>
     @endif
 
+</body>
+</html>

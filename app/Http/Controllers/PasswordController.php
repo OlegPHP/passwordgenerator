@@ -18,6 +18,15 @@ class PasswordController extends Controller
             'quantity' => 'required|integer|min:4|max:40',
             'complexity' => 'required|in:1,2',
             'special' => 'required|in:1,2',
+        ], [
+            'quantity.required' => 'Поле "Количество символов" обязательно для заполнения.',
+            'quantity.integer'  => 'Поле "Количество символов" должно быть числом.',
+            'quantity.min'      => 'Количество символов должно быть не меньше 4!',
+            'quantity.max'      => 'Количество символов не должно превышать 40!',
+            'complexity.required' => 'Выберите сложность пароля.',
+            'complexity.in'       => 'Выбранная сложность некорректна.',
+            'special.required'    => 'Выберите, добавлять ли специальные символы.',
+            'special.in'          => 'Выбранное значение для спецсимволов некорректно.',
         ]);
 
         $quantity = $validated['quantity'];
